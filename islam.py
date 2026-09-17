@@ -82,13 +82,7 @@ def get_daftar_kota():
         r = requests.get("https://api.myquran.com/v1/sholat/kota/semua", timeout=10).json()
         return r['data']
     except:
-        return [
-            {"id":"1210","lokasi":"BANDAR LAMPUNG"},
-            {"id":"1202","lokasi":"BANTEN"},
-            {"id":"1301","lokasi":"JAKARTA"},
-            {"id":"1211","lokasi":"LAMPUNG SELATAN"},
-            {"id":"1221","lokasi":"LAMPUNG TENGAH"}
-        ]
+        return [{"id":"1210","lokasi":"BANDAR LAMPUNG"},{"id":"1301","lokasi":"JAKARTA"}]
 
 def get_rank(xp):
     if xp < 50: return "Pencari Hidayah"
@@ -97,28 +91,84 @@ def get_rank(xp):
     elif xp < 500: return "Ahlul Quran"
     else: return "Wali Santri"
 
-def khotbah_pendek():
-    data = [
-        {"judul":"Khotbah Pendek: Jaga Sholat","isi":"Peliharalah sholat. QS Al-Baqarah 238. Sholat tiang agama, jangan tinggalkan."},
-        {"judul":"Khotbah Pendek: Sabar","isi":"Jadikan sabar dan sholat sebagai penolongmu. QS Al-Baqarah 153. Allah bersama orang sabar."}
-    ]
-    return random.choice(data)
+# === API KHOTBAH ===
+def get_khotbah_pendek_api():
+    try:
+        r = requests.get("https://khotbah-api.vercel.app/api/khotbah/random", timeout=10)
+        if r.status_code == 200:
+            d = r.json()
+            return {"judul": d.get('judul','Khotbah Pendek API'), "isi": d.get('isi','')[:1500], "kuis_q": "Apa tema khotbah ini?", "kuis_a": "islam"}
+    except: pass
+    return {"judul":"Khotbah Pendek: Jaga Sholat","isi":"Peliharalah sholat. QS Al-Baqarah 238. Sholat tiang agama.","kuis_q":"Sholat tiang apa?","kuis_a":"agama"}
 
-def khotbah_panjang():
-    data = [
-        {"judul":"Khotbah Panjang: Bahaya Judi Online","isi":"Jamaah rahimakumullah. Allah berfirman QS Al-Maidah 90: Hai orang beriman, sesungguhnya khamr, berjudi, berhala adalah keji termasuk perbuatan syaitan maka jauhilah. Judi online merusak keluarga, ekonomi, iman.","kuis_q":"QS Al-Maidah 90 melarang apa?","kuis_a":"judi"},
-        {"judul":"Khotbah Panjang: Pentingnya Ngaji","isi":"Alhamdulillah. Iqra bismi rabbik. Selama kita hidup kita masih kategori mengaji. Menuntut ilmu wajib.","kuis_q":"Arti Iqra?","kuis_a":"bacalah"},
-        {"judul":"Khotbah Panjang: Birrul Walidain","isi":"Dan Kami perintahkan berbuat baik kepada ibu bapak. QS Luqman 14. Ridho Allah ada pada ridho orang tua.","kuis_q":"QS Luqman 14 tentang apa?","kuis_a":"orang tua"}
-    ]
-    return random.choice(data)
+def get_khotbah_panjang_api():
+    isi_api = ""
+    judul_api = "Khotbah Jumat"
+    try:
+        # API 1
+        r = requests.get("https://api.myquran.com/v1/khotbah/jumat", timeout=10).json()
+        if r.get('data'):
+            judul_api = r['data'].get('judul', judul_api)
+            isi_api = r['data'].get('isi', '')
+    except: pass
+    if not isi_api:
+        try:
+            # API 2 backup
+            r = requests.get("https://raw.githubusercontent.com/renomureza/islamic-api/main/data/khotbah.json", timeout=10).json()
+            pil = random.choice(r)
+            judul_api = pil['judul']
+            isi_api = pil['isi']
+        except: pass
+    if not isi_api:
+        try:
+            # API 3 Quran sebagai bahan khotbah
+            r = requests.get("https://api.quran.gading.dev/surah/2", timeout=10).json()
+            ayat = r['data']['verses'][random.randint(1,10)]['translation']['id']
+            judul_api = "Khotbah Jumat: Pentingnya Takwa (API Quran)"
+            isi_api = ayat
+        except:
+            isi_api = "Wahai jamaah, tingkatkan takwa kepada Allah."
+
+    # BUNGKUS JADI FULL KHOTBAH JUMAT PANJANG
+    full_isi = f"""
+إِنَّ الْحَمْدَ لِلَّهِ نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ
+
+Jamaah Jumat rahimakumullah,
+Marilah kita bersyukur kepada Allah SWT dan meningkatkan takwa.
+
+Judul Khotbah Hari Ini (dari API): {judul_api}
+
+MATERI KHOTBAH DARI API:
+{isi_api}
+
+PENJELASAN LENGKAP:
+Jamaah sekalian, apa yang disampaikan API tadi adalah inti sari ajaran Islam. Mari kita kembangkan.
+
+1. Muqaddimah Takwa:
+Allah berfirman: "Hai orang-orang yang beriman, bertakwalah kepada Allah sebenar-benar takwa kepada-Nya, dan janganlah sekali-kali kamu mati melainkan dalam keadaan beragama Islam." (QS Ali Imran 102)
+
+2. Isi Utama:
+{isi_api}
+
+Kita sebagai muslim harus mengamalkan ini dalam kehidupan sehari-hari. Jangan hanya didengar, tapi diamalkan.
+
+Jika ini tentang sholat, maka jagalah sholat 5 waktu. Jika tentang judi, jauhilah. Jika tentang orang tua, berbaktilah.
+
+3. Penutup dan Doa:
+Marilah kita tutup dengan doa. Semoga Allah memberikan kita hidayah, menjaga keluarga kita dari maksiat, dan memasukkan kita ke surga firdaus.
+
+Semoga khotbah dari API ini bermanfaat. Ingat, ilmu tanpa amal bagaikan pohon tanpa buah.
+
+Aamiin ya Rabbal Alamin.
+"""
+    return {"judul": judul_api, "isi": full_isi, "kuis_q": f"Apa judul khotbah API tadi?", "kuis_a": judul_api.split()[0].lower()}
 
 def tanya_awal():
     banner()
     config = load_json(CONFIG_FILE, {})
     if "is_mengaji" not in config:
         print("=== SETUP AWAL ===")
-        print("Ketik.dk untuk daftar kota")
-        jwb = input("Apakah anda masih dalam kategori mengaji n/Y : ").lower().strip()
+        jwb = input("Apakah anda masih kategori mengaji n/Y : ").lower().strip()
         is_mengaji = True if jwb == 'y' else False
         kota_input = input("Masukan ID kota contoh 1210 : ") or "1210"
         if kota_input.lower() == ".dk":
@@ -141,9 +191,8 @@ def main():
         try:
             cmd = input("\n> ").strip()
             low = cmd.lower()
-            if low == "clear" or low == ".clear":
+            if low in ["clear",".clear"]:
                 banner()
-                print("Perintah:.khotbah.jadwalsholat.ngaji.xp.kuisislam.achievement.dk.setkota.clear.exit")
                 continue
             if low == ".dk":
                 print("\nDaftar Kota:")
@@ -155,20 +204,19 @@ def main():
                 try:
                     id_baru = cmd.split(" ")[1]
                     config["kota_id"] = id_baru
-                    config["kota"] = id_baru
                     save_json(CONFIG_FILE, config)
                     print(f"Kota diganti ke {id_baru}")
                 except:
                     print("Format:.setkota 1210")
                 auto_clear()
                 continue
-            if low == "exit" or low == ".exit":
+            if low in ["exit",".exit"]:
                 print("Keluar Barakallah")
                 sys.exit(0)
             if low == ".reset":
                 for f in [CONFIG_FILE, DATA_FILE]:
                     if os.path.exists(f): os.remove(f)
-                print("Reset Jalankan ulang")
+                print("Reset! Jalankan ulang")
                 break
             elif low == ".jadwalsholat":
                 timings, lokasi = get_jadwal(str(config.get("kota_id","1210")))
@@ -177,53 +225,57 @@ def main():
                     for k,v in timings.items():
                         print(f"{k}: {v}")
                 else:
-                    print("Gagal cek ID kota.dk dulu")
+                    print("Gagal cek,.dk dulu")
                 auto_clear()
                 continue
             elif low == ".khotbah":
-                print("\nPilihan\n1. Khotbah pendek +10 xp\n2. Khotbah panjang +20 xp\n3. Khotbah panjang dan kuis +50 xp")
+                print("\nPilihan\n1. Khotbah pendek (API) +10 xp [auto 10 detik]\n2. Khotbah panjang FULL API +20 xp [tunggu.selesaibaca]\n3. Khotbah panjang API + kuis +50 xp [tunggu.selesaibaca]")
                 pil = input("Pilih 1/2/3 : ").strip()
                 if pil == "1":
-                    kh = khotbah_pendek()
+                    print("\nMengambil khotbah pendek dari API...")
+                    kh = get_khotbah_pendek_api()
                     print(f"\n{kh['judul']}\n\n{kh['isi']}")
                     if config["is_mengaji"]:
                         data["xp"] += 10
                         save_json(DATA_FILE, data)
                         print(f"\n+10 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
-                elif pil == "2":
-                    kh = khotbah_panjang()
+                    auto_clear()
+                elif pil in ["2","3"]:
+                    print("\nMengambil khotbah panjang dari API...")
+                    kh = get_khotbah_panjang_api()
                     print(f"\n{kh['judul']}\n\n{kh['isi']}")
-                    if config["is_mengaji"]:
-                        data["xp"] += 20
-                        save_json(DATA_FILE, data)
-                        print(f"\n+20 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
-                elif pil == "3":
-                    kh = khotbah_panjang()
-                    print(f"\n{kh['judul']}\n\n{kh['isi']}\n\n--- KUIS ---\n{kh['kuis_q']}")
-                    jawab = input("Jawaban lu : ").lower().strip()
-                    if kh['kuis_a'] in jawab:
-                        print("MasyaAllah benar")
-                        if config["is_mengaji"]:
-                            data["xp"] += 50
-                            save_json(DATA_FILE, data)
-                            print(f"+50 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
-                    else:
-                        print(f"Belum tepat Jawaban {kh['kuis_a']} tetap +20 XP")
+                    print("\n" + "="*60)
+                    print("Ketik.selesaibaca setelah selesai membaca khotbah")
+                    print("="*60)
+                    while True:
+                        s = input().lower().strip()
+                        if s == ".selesaibaca":
+                            break
+                        else:
+                            print("Ketik.selesaibaca jika sudah selesai")
+                    if pil == "2":
                         if config["is_mengaji"]:
                             data["xp"] += 20
                             save_json(DATA_FILE, data)
-                auto_clear()
+                            print(f"\nBarakallah sudah baca khotbah API +20 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                    else:
+                        print(f"\n--- KUIS API ---\n{kh['kuis_q']}")
+                        jawab = input("Jawaban lu : ").lower().strip()
+                        if kh['kuis_a'].lower() in jawab.lower() or jawab.lower() in kh['kuis_a'].lower():
+                            print("MasyaAllah benar")
+                            if config["is_mengaji"]:
+                                data["xp"] += 50
+                                save_json(DATA_FILE, data)
+                                print(f"+50 XP Total {data['xp']}")
+                        else:
+                            print(f"Belum tepat, jawaban {kh['kuis_a']} tetap +20 XP")
+                            if config["is_mengaji"]:
+                                data["xp"] += 20
+                                save_json(DATA_FILE, data)
+                    banner()
                 continue
             elif low == ".kuisislam":
-                soal = [
-                    {"q":"Rukun Islam ada berapa?","a":"5"},
-                    {"q":"Malam Lailatul Qadar di bulan apa?","a":"ramadhan"},
-                    {"q":"Nabi pertama siapa?","a":"adam"},
-                    {"q":"Kitab umat Islam?","a":"quran"},
-                    {"q":"Sholat pertama?","a":"subuh"},
-                    {"q":"Arah kiblat ke kota?","a":"mekkah"},
-                    {"q":"Puasa wajib bulan apa?","a":"ramadhan"}
-                ]
+                soal = [{"q":"Rukun Islam ada berapa?","a":"5"},{"q":"Puasa wajib bulan apa?","a":"ramadhan"}]
                 s = random.choice(soal)
                 print(f"\n[KUIS ISLAM] {s['q']}")
                 jwb = input("Jawaban: ").lower().strip()
@@ -231,37 +283,20 @@ def main():
                     data["xp"] += 15
                     data["kuis_benar"] = data.get("kuis_benar",0)+1
                     save_json(DATA_FILE, data)
-                    print(f"Bener +15 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                    print(f"Bener +15 XP Total {data['xp']}")
                 else:
-                    print(f"Salah Jawaban {s['a']}")
+                    print(f"Salah, jawaban {s['a']}")
                 auto_clear()
                 continue
             elif low == ".achievement":
-                xp = data["xp"]
-                rank = get_rank(xp)
-                print(f"\n=== ACHIEVEMENT ===\nRank: {rank}\nXP: {xp}\nKuis benar: {data.get('kuis_benar',0)}\n\nBadge:")
-                if xp >= 10: print("✅ Pertama Ngaji")
-                if xp >= 50: print("✅ Rajin Sholat")
-                if data.get('kuis_benar',0) >= 1: print("✅ Cerdas Islami")
-                if xp >= 100: print("✅ Istiqomah")
-                if xp >= 300: print("✅ Ahlul Quran Unlock")
-                if xp >= 500: print("✅ Wali Santri")
-                if xp < 10: print("Belum ada ayo ngaji dulu")
+                print(f"\nRank: {get_rank(data['xp'])} | XP: {data['xp']}")
                 auto_clear()
                 continue
-            elif low == ".ngaji":
-                if config["is_mengaji"]:
-                    data["xp"] += 10
-                    save_json(DATA_FILE, data)
-                    print(f"Barakallah +10 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
-                    auto_clear()
-                continue
             elif low == ".xp":
-                print(f"XP {data['xp']} Rank {get_rank(data['xp'])} Kota {config.get('kota_id')}")
+                print(f"XP {data['xp']} Rank {get_rank(data['xp'])}")
                 auto_clear()
                 continue
         except KeyboardInterrupt:
-            print("\nKetik.clear atau.exit")
             continue
         except Exception as e:
             print(f"Error {e}")
