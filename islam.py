@@ -1,1 +1,271 @@
-import base64                 exec(base64.b64decode("aW1wb3J0IGpzb24sIG9zLCByZXF1ZXN0cywgdGhyZWFkaW5nLCB0aW1lLCByYW5kb20KZnJvbSBkYXRldGltZSBpbXBvcnQgZGF0ZXRpbWUKCkNPTkZJR19GSUxFID0gImNvbmZpZy5qc29uIgpEQVRBX0ZJTEUgPSAiZGF0YS5qc29uIgoKZGVmIGJhbm5lcigpOgogICAgcHJpbnQociIiIgogIF9fX19fIF9fX19fIF8gX18gX18KIHxfIF98LyBfX19ffCB8IHwgXC8gfAogICB8IHwgfCAoX19fIHwgfCB8IFwgLyB8CiAgIHwgfCBcX19fIFx8IHwgfCB8XC98IHwKICBffCB8XyBfX19fKSB8IHxfX19fIHwgfCB8IHwKIHxfX19fX3xfX19fXy98X19fX19ffCB8X3wgfF98CgogICAgICBDcmVhdGVkIGJ5IFJpemFsCiAgICAiIiIpCgpkZWYgbG9hZF9qc29uKGZpbGUsIGRlZmF1bHQpOgogICAgaWYgbm90IG9zLnBhdGguZXhpc3RzKGZpbGUpOgogICAgICAgIHdpdGggb3BlbihmaWxlLCd3JykgYXMgZjoganNvbi5kdW1wKGRlZmF1bHQsZixpbmRlbnQ9MikKICAgICAgICByZXR1cm4gZGVmYXVsdAogICAgd2l0aCBvcGVuKGZpbGUsJ3InKSBhcyBmOiByZXR1cm4ganNvbi5sb2FkKGYpCgpkZWYgc2F2ZV9qc29uKGZpbGUsIGRhdGEpOgogICAgd2l0aCBvcGVuKGZpbGUsJ3cnKSBhcyBmOiBqc29uLmR1bXAoZGF0YSxmLGluZGVudD0yKQoKZGVmIGdldF9qYWR3YWwoa290YT0iQmFuZGFyIExhbXB1bmciKToKICAgIHRyeToKICAgICAgICB1cmwgPSBmImh0dHA6Ly9hcGkuYWxhZGhhbi5jb20vdjEvdGltaW5nc0J5Q2l0eT9jaXR5PXtrb3RhfSZjb3VudHJ5PUluZG9uZXNpYSZtZXRob2Q9MiIKICAgICAgICByID0gcmVxdWVzdHMuZ2V0KHVybCwgdGltZW91dD0xMCkuanNvbigpCiAgICAgICAgcmV0dXJuIHJbJ2RhdGEnXVsndGltaW5ncyddLCByWydkYXRhJ11bJ2RhdGUnXVsncmVhZGFibGUnXQogICAgZXhjZXB0OgogICAgICAgIHJldHVybiBOb25lLCBOb25lCgpkZWYgZ2V0X2tob3RiYWhfYXBpKCk6CiAgICB0cnk6CiAgICAgICAgciA9IHJlcXVlc3RzLmdldCgiaHR0cHM6Ly9raG90YmFoLWFwaS52ZXJjZWwuYXBwL2FwaS9raG90YmFoL3JhbmRvbSIsIHRpbWVvdXQ9MTApCiAgICAgICAgaWYgci5zdGF0dXNfY29kZSA9PSAyMDA6CiAgICAgICAgICAgIGQgPSByLmpzb24oKQogICAgICAgICAgICBqdWR1bCA9IGQuZ2V0KCdqdWR1bCcsJ0tob3RiYWggSnVtYXQnKQogICAgICAgICAgICBpc2kgPSBkLmdldCgnaXNpJywnJykKICAgICAgICAgICAgcmV0dXJuIGYie2p1ZHVsfVxuXG57aXNpWzoyMDAwXX0iCiAgICBleGNlcHQ6CiAgICAgICAgcGFzcwogICAgdHJ5OgogICAgICAgIHIgPSByZXF1ZXN0cy5nZXQoImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9yZW5vbXVyZXphL2lzbGFtaWMtYXBpL21haW4vZGF0YS9raG90YmFoLmpzb24iLCB0aW1lb3V0PTEwKQogICAgICAgIGlmIHIuc3RhdHVzX2NvZGUgPT0gMjAwOgogICAgICAgICAgICBkYXRhID0gci5qc29uKCkKICAgICAgICAgICAgcGlsID0gcmFuZG9tLmNob2ljZShkYXRhKQogICAgICAgICAgICByZXR1cm4gZiJ7cGlsWydqdWR1bCddfVxuXG57cGlsWydpc2knXX0iCiAgICBleGNlcHQ6CiAgICAgICAgcGFzcwogICAgdHJ5OgogICAgICAgIHIgPSByZXF1ZXN0cy5nZXQoImh0dHBzOi8vYXBpLnF1cmFuLmdhZGluZy5kZXYvc3VyYWgvMiIsIHRpbWVvdXQ9MTApLmpzb24oKQogICAgICAgIGF5YXQgPSByWydkYXRhJ11bJ3ZlcnNlcyddWzFdWyd0cmFuc2xhdGlvbiddWydpZCddCiAgICAgICAgcmV0dXJuIGYiW0tIT1RCQUggQVBJIFFVUkFOXVxuVGVtYTogU2hvbGF0XG5cbntheWF0fVxuXG5KYWdhbGFoIHNob2xhdG11IG1ha2EgaGlkdXBtdSB0ZXJqYWdhLiIKICAgIGV4Y2VwdDoKICAgICAgICByZXR1cm4gIkdhZ2FsIGFtYmlsIEFQSSBraG90YmFoLCBjZWsgaW50ZXJuZXQuIgoKZGVmIG5vdGlmX3Nob2xhdF90aHJlYWQoKToKICAgIHdoaWxlIFRydWU6CiAgICAgICAgY29uZmlnID0gbG9hZF9qc29uKENPTkZJR19GSUxFLCB7fSkKICAgICAgICBpZiBub3QgY29uZmlnLmdldCgia290YSIpOgogICAgICAgICAgICB0aW1lLnNsZWVwKDYwKQogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHRpbWluZ3MsXyA9IGdldF9qYWR3YWwoY29uZmlnWyJrb3RhIl0pCiAgICAgICAgaWYgbm90IHRpbWluZ3M6CiAgICAgICAgICAgIHRpbWUuc2xlZXAoNjApCiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgbm93ID0gZGF0ZXRpbWUubm93KCkuc3RyZnRpbWUoIiVIOiVNIikKICAgICAgICBmb3IgbmFtYSBpbiBbIkZhanIiLCJEaHVociIsIkFzciIsIk1hZ2hyaWIiLCJJc2hhIl06CiAgICAgICAgICAgIGlmIHRpbWluZ3MuZ2V0KG5hbWEpIGFuZCB0aW1pbmdzW25hbWFdWzo1XSA9PSBub3c6CiAgICAgICAgICAgICAgICBwcmludChmIlxu8J+UlCBXYWt0dW55YSBzaG9sYXQge25hbWF9ICh7dGltaW5nc1tuYW1hXX0pISBLZXRpay5jb2xsZWN0eHBmcm9tc2hvbGF0IikKICAgICAgICB0aW1lLnNsZWVwKDMwKQoKZGVmIHRhbnlhX2F3YWwoKToKICAgIGJhbm5lcigpCiAgICBjb25maWcgPSBsb2FkX2pzb24oQ09ORklHX0ZJTEUsIHt9KQogICAgaWYgImlzX21lbmdhamkiIG5vdCBpbiBjb25maWc6CiAgICAgICAgcHJpbnQoIj09PSBTRVRVUCBBV0FMID09PSIpCiAgICAgICAgandiID0gaW5wdXQoIkFwYWthaCBhbmRhIG1hc2loIGRhbGFtIGthdGVnb3JpIG1lbmdhamkgbi9ZIDogIikubG93ZXIoKS5zdHJpcCgpCiAgICAgICAgaXNfbWVuZ2FqaSA9IFRydWUgaWYgandiID09ICd5JyBlbHNlIEZhbHNlCiAgICAgICAga290YSA9IGlucHV0KCJNYXN1a2FuIGtvdGEgbHUgKGNvbnRvaDogQmFuZGFyIExhbXB1bmcpIDogIikgb3IgIkJhbmRhciBMYW1wdW5nIgogICAgICAgIGNvbmZpZyA9IHsiaXNfbWVuZ2FqaSI6IGlzX21lbmdhamksICJrb3RhIjoga290YX0KICAgICAgICBzYXZlX2pzb24oQ09ORklHX0ZJTEUsIGNvbmZpZykKICAgICAgICBzYXZlX2pzb24oREFUQV9GSUxFLCB7InhwIjowLCAid2FrdHVfbmdhamkiOiIiLCAibGFzdF9zaG9sYXQiOiIifSkKICAgICAgICBtb2RlID0gIk5HQUpJIiBpZiBpc19tZW5nYWppIGVsc2UgIk5PTi1OR0FKSSIKICAgICAgICBwcmludChmIkRpc2ltcGFuISBNb2RlOiB7bW9kZX1cbiIpCiAgICByZXR1cm4gY29uZmlnCgpkZWYgbWFpbigpOgogICAgY29uZmlnID0gdGFueWFfYXdhbCgpCiAgICBkYXRhID0gbG9hZF9qc29uKERBVEFfRklMRSwgeyJ4cCI6MCwgIndha3R1X25nYWppIjoiIiwgImxhc3Rfc2hvbGF0IjoiIn0pCgogICAgdGhyZWFkaW5nLlRocmVhZCh0YXJnZXQ9bm90aWZfc2hvbGF0X3RocmVhZCwgZGFlbW9uPVRydWUpLnN0YXJ0KCkKCiAgICBwcmludCgiQm90IEphbGFuISBQZXJpbnRhaDoiKQogICAgaWYgY29uZmlnWyJpc19tZW5nYWppIl06CiAgICAgICAgcHJpbnQoIi5zZXR3YWt0dW5nYWppIDIwOjAwIHwubmdhamkgfC54cCB8LmNvbGxlY3R4cGZyb21zaG9sYXQgfC5qYWR3YWxzaG9sYXQgfC5raG90YmFoIHwucmVzZXQiKQogICAgZWxzZToKICAgICAgICBwcmludCgiLmphZHdhbHNob2xhdCB8Lmtob3RiYWggfC5yZXNldCIpCgogICAgd2hpbGUgVHJ1ZToKICAgICAgICBjbWQgPSBpbnB1dCgiXG4+ICIpLnN0cmlwKCkKICAgICAgICBsb3cgPSBjbWQubG93ZXIoKQoKICAgICAgICBpZiBsb3cgPT0gIi5yZXNldCI6CiAgICAgICAgICAgIGZvciBmIGluIFtDT05GSUdfRklMRSwgREFUQV9GSUxFXToKICAgICAgICAgICAgICAgIGlmIG9zLnBhdGguZXhpc3RzKGYpOgogICAgICAgICAgICAgICAgICAgIG9zLnJlbW92ZShmKQogICAgICAgICAgICBwcmludCgiUmVzZXQhIEphbGFua2FuIHVsYW5nIGZpbGUuIikKICAgICAgICAgICAgYnJlYWsKCiAgICAgICAgZWxpZiBsb3cgPT0gIi5qYWR3YWxzaG9sYXQiOgogICAgICAgICAgICB0aW1pbmdzLCB0Z2wgPSBnZXRfamFkd2FsKGNvbmZpZ1sia290YSJdKQogICAgICAgICAgICBpZiB0aW1pbmdzOgogICAgICAgICAgICAgICAgcHJpbnQoZiJcbkphZHdhbCB7Y29uZmlnWydrb3RhJ119IC0ge3RnbH0iKQogICAgICAgICAgICAgICAgZm9yIGsgaW4gWyJGYWpyIiwiRGh1aHIiLCJBc3IiLCJNYWdocmliIiwiSXNoYSJdOgogICAgICAgICAgICAgICAgICAgIHByaW50KGYie2t9OiB7dGltaW5nc1trXX0iKQoKICAgICAgICBlbGlmIGxvdyA9PSAiLmtob3RiYWgiOgogICAgICAgICAgICBwcmludCgiXG5NZW5nYW1iaWwga2hvdGJhaCBkYXJpIEFQSS4uLiIpCiAgICAgICAgICAgIHByaW50KGdldF9raG90YmFoX2FwaSgpKQogICAgICAgICAgICBpZiBjb25maWdbImlzX21lbmdhamkiXToKICAgICAgICAgICAgICAgIGRhdGFbInhwIl0gKz0gMgogICAgICAgICAgICAgICAgc2F2ZV9qc29uKERBVEFfRklMRSwgZGF0YSkKICAgICAgICAgICAgICAgIHByaW50KGYiXG4rMiBYUCBrYXJlbmEgYmFjYSBraG90YmFoISBUb3RhbCB7ZGF0YVsneHAnXX0iKQoKICAgICAgICBlbGlmIGNvbmZpZ1siaXNfbWVuZ2FqaSJdOgogICAgICAgICAgICBpZiBsb3cuc3RhcnRzd2l0aCgiLnNldHdha3R1bmdhamkiKToKICAgICAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgICAgICB3YWt0dSA9IGNtZC5zcGxpdCgiICIpWzFdCiAgICAgICAgICAgICAgICAgICAgZGF0YVsid2FrdHVfbmdhamkiXSA9IHdha3R1CiAgICAgICAgICAgICAgICAgICAgc2F2ZV9qc29uKERBVEFfRklMRSwgZGF0YSkKICAgICAgICAgICAgICAgICAgICBwcmludChmIldha3R1IG5nYWppIGRpc2V0IHt3YWt0dX0iKQogICAgICAgICAgICAgICAgZXhjZXB0OgogICAgICAgICAgICAgICAgICAgIHByaW50KCJGb3JtYXQ6LnNldHdha3R1bmdhamkgMjA6MDAiKQogICAgICAgICAgICBlbGlmIGxvdyA9PSAiLm5nYWppIjoKICAgICAgICAgICAgICAgIGRhdGFbInhwIl0gKz0gMTAKICAgICAgICAgICAgICAgIHNhdmVfanNvbihEQVRBX0ZJTEUsIGRhdGEpCiAgICAgICAgICAgICAgICBwcmludChmIkJhcmFrYWxsYWghICsxMCBYUCBUb3RhbDoge2RhdGFbJ3hwJ119IikKICAgICAgICAgICAgZWxpZiBsb3cgPT0gIi54cCI6CiAgICAgICAgICAgICAgICBwcmludChmIlhQOiB7ZGF0YVsneHAnXX0gfCBOZ2FqaSBqYW06IHtkYXRhWyd3YWt0dV9uZ2FqaSddfSIpCiAgICAgICAgICAgIGVsaWYgbG93ID09ICIuY29sbGVjdHhwZnJvbXNob2xhdCI6CiAgICAgICAgICAgICAgICB0b2RheSA9IGRhdGV0aW1lLm5vdygpLnN0cmZ0aW1lKCIlWS0lbS0lZCAlSCIpCiAgICAgICAgICAgICAgICBpZiBkYXRhLmdldCgibGFzdF9zaG9sYXQiKSE9IHRvZGF5OgogICAgICAgICAgICAgICAgICAgIGRhdGFbInhwIl0gKz0gNQogICAgICAgICAgICAgICAgICAgIGRhdGFbImxhc3Rfc2hvbGF0Il0gPSB0b2RheQogICAgICAgICAgICAgICAgICAgIHNhdmVfanNvbihEQVRBX0ZJTEUsIGRhdGEpCiAgICAgICAgICAgICAgICAgICAgcHJpbnQoZiJTaG9sYXQgZGljYXRhdCArNSBYUCBUb3RhbDoge2RhdGFbJ3hwJ119IikKICAgICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICAgICAgcHJpbnQoIlVkYWggY29sbGVjdCBqYW0gaW5pLiIpCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCg==").decode())
+import json, os, requests, threading, time, random, sys, hashlib, base64
+from datetime import datetime
+
+CONFIG_FILE = "config.json"
+DATA_FILE = "data.json"
+SECRET = "islam-indo-rizal-2026"
+
+def encrypt_data(data):
+    j = json.dumps(data)
+    k = hashlib.sha256(SECRET.encode()).digest()
+    enc = bytes([ord(c) ^ k[i % len(k)] for i, c in enumerate(j)])
+    return base64.b64encode(enc).decode()
+
+def decrypt_data(s):
+    try:
+        enc = base64.b64decode(s.encode())
+        k = hashlib.sha256(SECRET.encode()).digest()
+        dec = "".join([chr(b ^ k[i % len(k)]) for i, b in enumerate(enc)])
+        return json.loads(dec)
+    except:
+        return None
+
+def banner():
+    os.system("clear")
+    print(r"""
+  _____ _____ _ __ __
+ |_ _/ ____| | | \/ |
+   | | | (___ | | | \ / |
+   | | \___ \| | | |\/| |
+  _| |_ ____) | |____ | | | |
+ |_____|_____/|______| |_| |_|
+      Created by Rizal
+    """)
+
+def load_json(file, default):
+    if file == DATA_FILE:
+        if not os.path.exists(file):
+            with open(file,'w') as f: f.write(encrypt_data(default))
+            return default
+        with open(file,'r') as f:
+            d = decrypt_data(f.read())
+            if d is None:
+                print("⚠️ DATA XP DI-BOBOL! Reset jadi 0")
+                time.sleep(2)
+                with open(file,'w') as wf: wf.write(encrypt_data(default))
+                return default
+            return d
+    else:
+        if not os.path.exists(file):
+            with open(file,'w') as f: json.dump(default,f,indent=2)
+            return default
+        with open(file,'r') as f: return json.load(f)
+
+def save_json(file, data):
+    if file == DATA_FILE:
+        with open(file,'w') as f: f.write(encrypt_data(data))
+    else:
+        with open(file,'w') as f: json.dump(data,f,indent=2)
+
+def auto_clear():
+    print("\nPesan akan tertutup dalam 10 detik...")
+    time.sleep(10)
+    banner()
+    print("Perintah:.khotbah.jadwalsholat.ngaji.xp.kuisislam.achievement.dk.setkota.clear.exit.reset")
+
+def get_jadwal(kota_id="1210"):
+    try:
+        if str(kota_id).isdigit():
+            url = f"https://api.myquran.com/v1/sholat/jadwal/{kota_id}/{datetime.now().strftime('%Y/%m/%d')}"
+        else:
+            url = f"http://api.aladhan.com/v1/timingsByCity?city={kota_id}&country=Indonesia&method=2"
+        r = requests.get(url, timeout=10).json()
+        if str(kota_id).isdigit():
+            return r['data']['jadwal'], r['data']['lokasi']
+        else:
+            return r['data']['timings'], kota_id
+    except:
+        return None, None
+
+def get_daftar_kota():
+    try:
+        r = requests.get("https://api.myquran.com/v1/sholat/kota/semua", timeout=10).json()
+        return r['data']
+    except:
+        return [
+            {"id":"1210","lokasi":"BANDAR LAMPUNG"},
+            {"id":"1202","lokasi":"BANTEN"},
+            {"id":"1301","lokasi":"JAKARTA"},
+            {"id":"1211","lokasi":"LAMPUNG SELATAN"},
+            {"id":"1221","lokasi":"LAMPUNG TENGAH"}
+        ]
+
+def get_rank(xp):
+    if xp < 50: return "Pencari Hidayah"
+    elif xp < 150: return "Pejuang Subuh"
+    elif xp < 300: return "Penjaga Sholat"
+    elif xp < 500: return "Ahlul Quran"
+    else: return "Wali Santri"
+
+def khotbah_pendek():
+    data = [
+        {"judul":"Khotbah Pendek: Jaga Sholat","isi":"Peliharalah sholat. QS Al-Baqarah 238. Sholat tiang agama, jangan tinggalkan."},
+        {"judul":"Khotbah Pendek: Sabar","isi":"Jadikan sabar dan sholat sebagai penolongmu. QS Al-Baqarah 153. Allah bersama orang sabar."}
+    ]
+    return random.choice(data)
+
+def khotbah_panjang():
+    data = [
+        {"judul":"Khotbah Panjang: Bahaya Judi Online","isi":"Jamaah rahimakumullah. Allah berfirman QS Al-Maidah 90: Hai orang beriman, sesungguhnya khamr, berjudi, berhala adalah keji termasuk perbuatan syaitan maka jauhilah. Judi online merusak keluarga, ekonomi, iman.","kuis_q":"QS Al-Maidah 90 melarang apa?","kuis_a":"judi"},
+        {"judul":"Khotbah Panjang: Pentingnya Ngaji","isi":"Alhamdulillah. Iqra bismi rabbik. Selama kita hidup kita masih kategori mengaji. Menuntut ilmu wajib.","kuis_q":"Arti Iqra?","kuis_a":"bacalah"},
+        {"judul":"Khotbah Panjang: Birrul Walidain","isi":"Dan Kami perintahkan berbuat baik kepada ibu bapak. QS Luqman 14. Ridho Allah ada pada ridho orang tua.","kuis_q":"QS Luqman 14 tentang apa?","kuis_a":"orang tua"}
+    ]
+    return random.choice(data)
+
+def tanya_awal():
+    banner()
+    config = load_json(CONFIG_FILE, {})
+    if "is_mengaji" not in config:
+        print("=== SETUP AWAL ===")
+        print("Ketik.dk untuk daftar kota")
+        jwb = input("Apakah anda masih dalam kategori mengaji n/Y : ").lower().strip()
+        is_mengaji = True if jwb == 'y' else False
+        kota_input = input("Masukan ID kota contoh 1210 : ") or "1210"
+        if kota_input.lower() == ".dk":
+            for k in get_daftar_kota()[:60]:
+                print(f"{k['lokasi'].lower()} : {k['id']}")
+            kota_input = input("Masukan ID kota : ") or "1210"
+        config = {"is_mengaji": is_mengaji, "kota_id": kota_input, "kota": kota_input}
+        save_json(CONFIG_FILE, config)
+        save_json(DATA_FILE, {"xp":0, "waktu_ngaji":"", "last_sholat":"", "kuis_benar":0})
+        print(f"Disimpan! Mode {'NGAJI' if is_mengaji else 'NON-NGAJI'}")
+        time.sleep(2)
+        banner()
+    return config
+
+def main():
+    config = tanya_awal()
+    data = load_json(DATA_FILE, {"xp":0, "waktu_ngaji":"", "last_sholat":"", "kuis_benar":0})
+    print("Bot Jalan!.khotbah.jadwalsholat.ngaji.xp.kuisislam.achievement.dk.setkota.clear.exit")
+    while True:
+        try:
+            cmd = input("\n> ").strip()
+            low = cmd.lower()
+            if low == "clear" or low == ".clear":
+                banner()
+                print("Perintah:.khotbah.jadwalsholat.ngaji.xp.kuisislam.achievement.dk.setkota.clear.exit")
+                continue
+            if low == ".dk":
+                print("\nDaftar Kota:")
+                for k in get_daftar_kota():
+                    print(f"{k['lokasi'].lower()} : {k['id']}")
+                auto_clear()
+                continue
+            if low.startswith(".setkota"):
+                try:
+                    id_baru = cmd.split(" ")[1]
+                    config["kota_id"] = id_baru
+                    config["kota"] = id_baru
+                    save_json(CONFIG_FILE, config)
+                    print(f"Kota diganti ke {id_baru}")
+                except:
+                    print("Format:.setkota 1210")
+                auto_clear()
+                continue
+            if low == "exit" or low == ".exit":
+                print("Keluar Barakallah")
+                sys.exit(0)
+            if low == ".reset":
+                for f in [CONFIG_FILE, DATA_FILE]:
+                    if os.path.exists(f): os.remove(f)
+                print("Reset Jalankan ulang")
+                break
+            elif low == ".jadwalsholat":
+                timings, lokasi = get_jadwal(str(config.get("kota_id","1210")))
+                if timings:
+                    print(f"\nJadwal {lokasi}")
+                    for k,v in timings.items():
+                        print(f"{k}: {v}")
+                else:
+                    print("Gagal cek ID kota.dk dulu")
+                auto_clear()
+                continue
+            elif low == ".khotbah":
+                print("\nPilihan\n1. Khotbah pendek +10 xp\n2. Khotbah panjang +20 xp\n3. Khotbah panjang dan kuis +50 xp")
+                pil = input("Pilih 1/2/3 : ").strip()
+                if pil == "1":
+                    kh = khotbah_pendek()
+                    print(f"\n{kh['judul']}\n\n{kh['isi']}")
+                    if config["is_mengaji"]:
+                        data["xp"] += 10
+                        save_json(DATA_FILE, data)
+                        print(f"\n+10 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                elif pil == "2":
+                    kh = khotbah_panjang()
+                    print(f"\n{kh['judul']}\n\n{kh['isi']}")
+                    if config["is_mengaji"]:
+                        data["xp"] += 20
+                        save_json(DATA_FILE, data)
+                        print(f"\n+20 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                elif pil == "3":
+                    kh = khotbah_panjang()
+                    print(f"\n{kh['judul']}\n\n{kh['isi']}\n\n--- KUIS ---\n{kh['kuis_q']}")
+                    jawab = input("Jawaban lu : ").lower().strip()
+                    if kh['kuis_a'] in jawab:
+                        print("MasyaAllah benar")
+                        if config["is_mengaji"]:
+                            data["xp"] += 50
+                            save_json(DATA_FILE, data)
+                            print(f"+50 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                    else:
+                        print(f"Belum tepat Jawaban {kh['kuis_a']} tetap +20 XP")
+                        if config["is_mengaji"]:
+                            data["xp"] += 20
+                            save_json(DATA_FILE, data)
+                auto_clear()
+                continue
+            elif low == ".kuisislam":
+                soal = [
+                    {"q":"Rukun Islam ada berapa?","a":"5"},
+                    {"q":"Malam Lailatul Qadar di bulan apa?","a":"ramadhan"},
+                    {"q":"Nabi pertama siapa?","a":"adam"},
+                    {"q":"Kitab umat Islam?","a":"quran"},
+                    {"q":"Sholat pertama?","a":"subuh"},
+                    {"q":"Arah kiblat ke kota?","a":"mekkah"},
+                    {"q":"Puasa wajib bulan apa?","a":"ramadhan"}
+                ]
+                s = random.choice(soal)
+                print(f"\n[KUIS ISLAM] {s['q']}")
+                jwb = input("Jawaban: ").lower().strip()
+                if s['a'] in jwb:
+                    data["xp"] += 15
+                    data["kuis_benar"] = data.get("kuis_benar",0)+1
+                    save_json(DATA_FILE, data)
+                    print(f"Bener +15 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                else:
+                    print(f"Salah Jawaban {s['a']}")
+                auto_clear()
+                continue
+            elif low == ".achievement":
+                xp = data["xp"]
+                rank = get_rank(xp)
+                print(f"\n=== ACHIEVEMENT ===\nRank: {rank}\nXP: {xp}\nKuis benar: {data.get('kuis_benar',0)}\n\nBadge:")
+                if xp >= 10: print("✅ Pertama Ngaji")
+                if xp >= 50: print("✅ Rajin Sholat")
+                if data.get('kuis_benar',0) >= 1: print("✅ Cerdas Islami")
+                if xp >= 100: print("✅ Istiqomah")
+                if xp >= 300: print("✅ Ahlul Quran Unlock")
+                if xp >= 500: print("✅ Wali Santri")
+                if xp < 10: print("Belum ada ayo ngaji dulu")
+                auto_clear()
+                continue
+            elif low == ".ngaji":
+                if config["is_mengaji"]:
+                    data["xp"] += 10
+                    save_json(DATA_FILE, data)
+                    print(f"Barakallah +10 XP Total {data['xp']} Rank {get_rank(data['xp'])}")
+                    auto_clear()
+                continue
+            elif low == ".xp":
+                print(f"XP {data['xp']} Rank {get_rank(data['xp'])} Kota {config.get('kota_id')}")
+                auto_clear()
+                continue
+        except KeyboardInterrupt:
+            print("\nKetik.clear atau.exit")
+            continue
+        except Exception as e:
+            print(f"Error {e}")
+            continue
+
+if __name__ == "__main__":
+    main()
